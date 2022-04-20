@@ -1,0 +1,14 @@
+body, div {
+  margin: 0px;
+  padding: 0px;
+}
+#container {
+  width: 600px;
+  height: 600px;
+  margin-left: 20px;
+  border-top: solid 1px;
+  border-left: solid 1px;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap; 
+}
