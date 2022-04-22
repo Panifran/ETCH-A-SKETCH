@@ -12,3 +12,7 @@
   justify-content: start;
   flex-wrap: wrap;
 }
+
+.red {
+  background-color: red;
+}
