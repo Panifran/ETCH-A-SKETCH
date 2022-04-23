@@ -1,5 +1,7 @@
 const container = document.querySelector('#container');
 const clean = document.querySelector('#clean');
+const erase = document.querySelector('#erase');
+const redColor = document.querySelector('#red-color');
 
 const numberSquares = 30;
 const squareSize = 600 / numberSquares;
@@ -16,9 +18,11 @@ function createBlankSquare() {
   container.appendChild(div);
 }
 
-function paintPanel(element) {
-  element.addEventListener('mouseenter', function () {
-    element.classList.add('red');
+function paintRed(element) {
+  redColor.addEventListener('click', function() {
+    element.addEventListener('mouseenter', function () {
+      element.classList.add('red');
+    })
   })
 }
 
@@ -28,8 +32,17 @@ function cleanPanel(element) {
   })
 }
 
+function eraseSquare(element) {
+  erase.addEventListener('click', function(){
+    element.addEventListener('mouseenter', function () {
+      element.classList.add('white');
+  })
+})
+}
+
 for (let i = 0; i < numberSquares * numberSquares; i++) {
   createBlankSquare();
-  paintPanel(div);
+  paintRed(div);
   cleanPanel(div);
+  eraseSquare(div);
 }
