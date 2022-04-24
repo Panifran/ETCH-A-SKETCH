@@ -2,6 +2,8 @@ const container = document.querySelector('#container');
 const clean = document.querySelector('#clean');
 const erase = document.querySelector('#erase');
 const redColor = document.querySelector('#red-color');
+const greenColor = document.querySelector('#green-color');
+const blueColor = document.querySelector('#blue-color');
 
 const numberSquares = 30;
 const squareSize = 600 / numberSquares;
@@ -18,31 +20,45 @@ function createBlankSquare() {
   container.appendChild(div);
 }
 
-function paintRed(element) {
-  redColor.addEventListener('click', function() {
+function paint(element) {
+  blueColor.addEventListener('click', function () {
     element.addEventListener('mouseenter', function () {
-      element.classList.add('red');
+      element.style.backgroundColor = 'blue';
     })
-  })
+  });
+  redColor.addEventListener('click', function () {
+    element.addEventListener('mouseenter', function () {
+      element.style.backgroundColor = 'red';
+    })
+  });
+  greenColor.addEventListener('click', function () {
+    element.addEventListener('mouseenter', function () {
+      element.style.backgroundColor = 'green';
+    })
+  });
 }
 
 function cleanPanel(element) {
-  clean.addEventListener('click', function() {
-    element.classList.remove('red');
+  clean.addEventListener('click', function () {
+    element.style.backgroundColor = 'white';
   })
 }
 
 function eraseSquare(element) {
-  erase.addEventListener('click', function(){
+  erase.addEventListener('click', function () {
     element.addEventListener('mouseenter', function () {
-      element.classList.add('white');
+      element.style.backgroundColor = 'white';
+    })
   })
-})
 }
+
 
 for (let i = 0; i < numberSquares * numberSquares; i++) {
   createBlankSquare();
-  paintRed(div);
+  paint(div);
   cleanPanel(div);
   eraseSquare(div);
 }
+
+
+
