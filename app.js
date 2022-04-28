@@ -5,9 +5,11 @@ const erase = document.querySelector('#erase');
 const redColor = document.querySelector('#red-color');
 const greenColor = document.querySelector('#green-color');
 const blueColor = document.querySelector('#blue-color');
+const randomColor = document.querySelector('#random');
 const smallPanel = document.querySelector('#small');
 const mediumPanel = document.querySelector('#medium');
 const bigPanel = document.querySelector('#big');
+const buttons = document.querySelectorAll('button');
 
 // count number of children nodes of container
 let countNodes = 0;
@@ -85,6 +87,11 @@ function paint(element) {
       element.style.backgroundColor = 'green';
     })
   });
+  randomColor.addEventListener('click', function () {
+    element.addEventListener('mouseenter', function () {
+      element.style.backgroundColor = getRandomColor();
+    })
+  });
 }
 
 //function to clean Panel
@@ -101,4 +108,29 @@ function eraseSquare(element) {
       element.style.backgroundColor = 'white';
     })
   })
+}
+
+// Mouse over user buttons to show/hide blue background
+for (const button of buttons) {
+  button.addEventListener('mouseenter', function () {
+    button.classList.add('blue');
+  });
+  button.addEventListener('mouseleave', function () {
+    button.classList.remove('blue');
+  });
+}
+
+// Function to get a random color
+function getRandom() {
+  return Math.random();
+}
+function getRandomColor() {
+  let value = getRandom();
+  if (value > 0.66) {
+    return 'blue';
+  } else if (value > 0.33) {
+    return 'red';
+  } else {
+    return 'green';
+  }
 }
